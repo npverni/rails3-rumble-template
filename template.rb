@@ -1,8 +1,7 @@
 # Application Generator Template
 # Modifies a Rails app to use RSpec, Cucumber, Factory Girl, MySQL and Devise...
-# Usage: rails new app2_name -d mysql -m /Users/npverni/apps/rails3-rumble-template/template.rb
 
-# More info: http://github.com/fortuity/rails3-mongoid-devise/
+# Based on: http://github.com/fortuity/rails3-mongoid-devise/
 
 # If you are customizing this template, you can use any methods provided by Thor::Actions
 # http://rdoc.info/rdoc/wycats/thor/blob/f939a3e8a854616784cac1dcff04ef4f3ee5f7ff/Thor/Actions.html
@@ -338,7 +337,7 @@ end
 
 run 'bundle install'
 run 'rails generate rspec:install'
-run 'rails cucumber:skeleton --capybara --rspec'
+run 'rails generate cucumber:skeleton --capybara --rspec'
 #----------------------------------------------------------------------------
 # Finish up
 #----------------------------------------------------------------------------
