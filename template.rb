@@ -314,30 +314,25 @@ run 'rake db:seed'
 #----------------------------------------------------------------------------
 # Setup RSpec & Cucumber
 #----------------------------------------------------------------------------
-puts 'Setting up RSpec and Cucumber'
+puts 'Setting up RSpec, Cucumber, factory_girl, faker'
 append_file 'Gemfile' do <<-FILE
-group :test do
-  gem "rspec"
-  gem "rspec-rails",      ">= 2.0.0.beta"
-  gem "machinist",        :git => "git://github.com/notahat/machinist.git"
+group :development, :test do
+  gem "rspec-rails", ">= 2.0.0"
+  gem "cucumber-rails", ">= 0.3.2"
+  gem "webrat", ">= 0.7.2.beta.2"
+  gem "factory_girl_rails"
   gem "faker"
-  gem "ZenTest"
-  gem "autotest"
-  gem "autotest-rails"
-  gem "cucumber",         :git => "git://github.com/aslakhellesoy/cucumber.git"
-  gem "database_cleaner", :git => 'git://github.com/bmabey/database_cleaner.git'
-  gem "cucumber-rails",   :git => "git://github.com/aslakhellesoy/cucumber-rails.git"
-  gem "capybara"
-  gem "capybara-envjs"
-  gem "launchy"
-  gem "ruby-debug"
 end
 FILE
 end
 
 run 'bundle install'
-run 'rails generate rspec:install'
-run 'rails generate cucumber:skeleton --capybara --rspec'
+run 'script/rails generate rspec:install'
+run 'script/rails generate cucumber:install'
+run 'rake db:migrate'
+run 'rake db:test:prepare'
+
+run 'touch spec/factories.rb'
 #----------------------------------------------------------------------------
 # Finish up
 #----------------------------------------------------------------------------
