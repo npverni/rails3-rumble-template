@@ -317,7 +317,7 @@ run 'rake db:seed'
 puts 'Setting up RSpec, Cucumber, factory_girl, faker'
 append_file 'Gemfile' do <<-FILE
 group :development, :test do
-  gem "rspec-rails", ">= 2.0.0"
+  gem "rspec-rails", ">= 2.0.1"
   gem "cucumber-rails", ">= 0.3.2"
   gem "webrat", ">= 0.7.2.beta.2"
   gem "factory_girl_rails"
